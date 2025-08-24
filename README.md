@@ -1,0 +1,138 @@
+# DRF Identity Service
+
+A Django REST Framework-based identity and authentication service with role-based access control and audit logging.
+
+## 🚀 Features
+
+- User authentication and authorization
+- Role-based access control 
+- Audit logging
+- PostgreSQL database
+- Redis caching
+- Docker containerization
+
+## 🛠️ Prerequisites
+
+- Docker & Docker Compose
+- Python 3.11+ (for local development)
+- PostgreSQL
+- Redis
+
+## 🏃‍♂️ Quick Start
+
+1. Clone the repository and setup environment:
+```bash
+git clone <repository-url>
+cd DRF-Identity-Service
+cp .env.example .env
+```
+
+2. Start the development environment:
+```bash
+make dev
+```
+
+3. Run migrations and create superuser:
+```bash
+make migrate
+make superuser
+```
+
+4. Access the service at http://localhost:8000/
+
+## 🔧 Configuration
+
+Key environment variables (see [.env.example](.env.example)):
+
+```bash
+# Django Configuration
+SECRET_KEY=django-insecure-change-me-in-production
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database Configuration
+DB_NAME=pharma_drf
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
+DB_PORT=5432
+
+# Redis Configuration
+REDIS_URL=redis://localhost:6379/1
+```
+
+## 🛠️ Development Commands
+
+```bash
+# Start development environment
+make dev
+
+# Run migrations
+make migrate
+
+# Create superuser
+make superuser
+
+# Run tests with coverage
+make test
+
+# Run linting checks
+make lint
+
+# Format code
+make fmt
+
+# Load test fixtures
+make load-fixtures
+
+# Access Django shell
+make shell
+```
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+make test
+```
+
+For continuous test running during development:
+
+```bash
+make test-watch
+```
+
+## 📦 Project Structure
+
+- `auth_views.py` - Authentication views and endpoints
+- `auth_serializers.py` - Data serializers
+- `user_models.py` - User and role models
+- `urls.py` - URL routing
+- `settings.py` - Django configuration
+- `Dockerfile` - Container definition
+- `docker-compose.yml` - Service orchestration
+
+## 🔒 Security Features
+
+- Password strength validation
+- Role-based permissions
+- Audit logging
+- Secure password hashing
+- Token authentication
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/new-feature`
+3. Make changes and test: `make test lint`
+4. Commit changes: `git commit -m "Add new feature"`
+5. Push and create PR
+
+## 🛟 Support
+
+For issues and support, please create an issue in the repository.
+
+## 📄 License
+
+[Add your license information here]
