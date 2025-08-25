@@ -1,16 +1,13 @@
 """
 Authentication views using JWT tokens with custom logic.
 """
-from datetime import datetime
-from django.contrib.auth import authenticate
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+from rest_framework_simplejwt.views import TokenObtainPairView
 from drf_spectacular.utils import extend_schema
 import logging
 
@@ -108,7 +105,7 @@ def logout_view(request):
             {"message": "Successfully logged out"},
             status=status.HTTP_200_OK
         )
-    except TokenError:
+    except Exception:
         return Response(
             {"error": "Invalid token"},
             status=status.HTTP_400_BAD_REQUEST
@@ -231,26 +228,23 @@ def terminate_session_view(request, session_id):
     """
     Terminate a specific user session.
     """
-    try:
-        session = UserSession.objects.get(
-            id=session_id,
-            user=request.user,
-            is_active=True
-        )
-        
-        session.is_active = False
-        session.logout_time = timezone.now()
-        session.save()
-        
-        logger.info(f"User {request.user.username} terminated session {session_id}")
-        
-        return Response(
-            {"message": "Session terminated successfully"},
-            status=status.HTTP_200_OK
-        )
+    from django.shortcuts import get_object_or_404
+
+    session = get_object_or_404(
+        UserSession,
+        id=session_id,
+        user=request.user,
+        is_active=True
+    )
+    session.is_active = False
+    session.logout_time = timezone.now()
+    session.save()
     
-    except UserSession.DoesNotExist:
-        return Response(
-            {"error": "Session not found or already terminated"},
-            status=status.HTTP_404_NOT_FOUND
-        )
+    logger.info(f"User {request.user.username} terminated session {session_id}")
+    
+    return Response(
+        {"message": "Session terminated successfully"},
+        status=status.HTTP_200_OK
+    )
+
+

@@ -1,7 +1,6 @@
 """
 Serializers for authentication and user management.
 """
-from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
@@ -222,3 +221,5 @@ class TokenRefreshSerializer(serializers.Serializer):
                     pass
         
         return data
+
+

@@ -40,6 +40,17 @@ make superuser
 
 4. Access the service at http://localhost:8000/
 
+## 🔌 API Endpoints (Auth)
+
+- POST `/api/auth/token/` obtain access/refresh
+- POST `/api/auth/token/refresh/` refresh access
+- POST `/api/auth/logout/` blacklist refresh
+- GET `/api/auth/profile/` current user
+- PUT/PATCH `/api/auth/profile/update/` update profile
+- POST `/api/auth/password/change/` change password
+- GET `/api/auth/sessions/` list recent sessions
+- POST `/api/auth/sessions/terminate/<id>/` terminate a session
+
 ## 🔧 Configuration
 
 Key environment variables (see [.env.example](.env.example)):
@@ -105,11 +116,11 @@ make test-watch
 
 ## 📦 Project Structure
 
-- `auth_views.py` - Authentication views and endpoints
-- `auth_serializers.py` - Data serializers
-- `user_models.py` - User and role models
-- `urls.py` - URL routing
-- `settings.py` - Django configuration
+- `config/` - Django project (settings, urls, asgi, wsgi)
+- `core/` - Utilities, middleware, exceptions, permissions
+- `accounts/` - User model, auth serializers/views/urls, admin
+- `audit/` - Audit middleware and future endpoints
+- `sites/`, `batches/`, `serializations/`, `inspections/` - Domain apps
 - `Dockerfile` - Container definition
 - `docker-compose.yml` - Service orchestration
 

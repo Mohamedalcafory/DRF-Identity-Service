@@ -1,0 +1,3 @@
+"""Sites app stub."""
+
+

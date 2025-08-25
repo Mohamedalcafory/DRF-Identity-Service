@@ -1,0 +1,3 @@
+"""Inspections app stub."""
+
+

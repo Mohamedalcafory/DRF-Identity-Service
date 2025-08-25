@@ -65,17 +65,17 @@ django_settings_module = "config.settings"
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
 python_files = ["tests.py", "test_*.py", "*_tests.py"]
-addopts = "--cov=backend --cov-report=term-missing --cov-report=html"
-testpaths = ["backend/tests"]
+addopts = "--cov=. --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
 
 [tool.coverage.run]
-source = "backend"
+source = "."
 omit = [
     "*/migrations/*",
     "*/venv/*",
     "*/tests/*",
     "manage.py",
-    "*/settings/*",
+    "config/*",
     "*/wsgi.py",
     "*/__pycache__/*"
 ]
