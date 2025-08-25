@@ -139,11 +139,3 @@ make test-watch
 3. Make changes and test: `make test lint`
 4. Commit changes: `git commit -m "Add new feature"`
 5. Push and create PR
-
-## 🛟 Support
-
-For issues and support, please create an issue in the repository.
-
-## 📄 License
-
-[Add your license information here]
