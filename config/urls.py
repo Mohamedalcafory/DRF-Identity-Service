@@ -1,5 +1,5 @@
 """
-URL configuration for pharma_drf_service project.
+URL configuration for drf_identity_service project.
 """
 from django.contrib import admin
 from django.urls import path, include

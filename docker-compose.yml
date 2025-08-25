@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB=pharma_drf
+      - POSTGRES_DB=drf_identity
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
@@ -39,7 +39,7 @@ services:
     environment:
       - DEBUG=1
       - SECRET_KEY=django-insecure-local-dev-key-change-me
-      - DB_NAME=pharma_drf
+      - DB_NAME=drf_identity
       - DB_USER=postgres
       - DB_PASSWORD=postgres
       - DB_HOST=db

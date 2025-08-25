@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pharma-drf-service"
+name = "drf-identity-service"
 version = "0.1.0"
 description = "Production-style DRF service with JWT, RBAC, caching, and audit logs"
 authors = [

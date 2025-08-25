@@ -63,10 +63,10 @@ collectstatic: ## Collect static files
 	docker-compose exec web python manage.py collectstatic --noinput
 
 backup-db: ## Backup database
-	docker-compose exec db pg_dump -U postgres pharma_drf > backup_$(shell date +%Y%m%d_%H%M%S).sql
+	docker-compose exec db pg_dump -U postgres drf_identity > backup_$(shell date +%Y%m%d_%H%M%S).sql
 
 restore-db: ## Restore database (usage: make restore-db FILE=backup.sql)
-	docker-compose exec -T db psql -U postgres pharma_drf < $(FILE)
+	docker-compose exec -T db psql -U postgres drf_identity < $(FILE)
 
 # Local development (without Docker)
 dev-local: ## Start local development server

@@ -1,5 +1,5 @@
 """
-WSGI config for pharma_drf_service project.
+WSGI config for drf_identity_service project.
 """
 
 import os

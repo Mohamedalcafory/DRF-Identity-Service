@@ -2,7 +2,7 @@ import os
 
 # Create the project structure
 project_structure = {
-    "pharma_drf_service": {
+    "drf_identity_service": {
         "backend": {
             "config": ["__init__.py", "settings.py", "urls.py", "wsgi.py"],
             "core": ["__init__.py", "permissions.py", "middleware.py", "utils.py", "exceptions.py"],

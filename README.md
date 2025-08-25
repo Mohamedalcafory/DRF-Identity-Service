@@ -24,7 +24,7 @@ A Django REST Framework-based identity and authentication service with role-base
 ```bash
 git clone <repository-url>
 cd DRF-Identity-Service
-cp .env.example .env
+# Copy environment file (create .env.example if it doesn't exist)
 ```
 
 2. Start the development environment:
@@ -53,7 +53,7 @@ make superuser
 
 ## 🔧 Configuration
 
-Key environment variables (see [.env.example](.env.example)):
+Key environment variables (see [.env](.env)):
 
 ```bash
 # Django Configuration
@@ -62,7 +62,7 @@ DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 
 # Database Configuration
-DB_NAME=pharma_drf
+DB_NAME=drf_identity
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=localhost
@@ -123,6 +123,8 @@ make test-watch
 - `sites/`, `batches/`, `serializations/`, `inspections/` - Domain apps
 - `Dockerfile` - Container definition
 - `docker-compose.yml` - Service orchestration
+- `Makefile` - Development commands
+- `Documentation.md` - Comprehensive guide
 
 ## 🔒 Security Features
 
@@ -139,3 +141,7 @@ make test-watch
 3. Make changes and test: `make test lint`
 4. Commit changes: `git commit -m "Add new feature"`
 5. Push and create PR
+
+## 📚 Documentation
+
+For detailed documentation and learning guide, see [Documentation.md](Documentation.md).

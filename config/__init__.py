@@ -1,3 +1,3 @@
-"""Django project package for pharma_drf_service."""
+"""Django project package for drf_identity_service."""
 
 

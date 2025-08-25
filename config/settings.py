@@ -1,5 +1,5 @@
 """
-Django settings for pharma_drf_service project.
+Django settings for drf_identity_service project.
 Production-ready configuration with JWT, RBAC, caching, and audit logs.
 """
 
@@ -96,7 +96,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DB_NAME', default='pharma_drf'),
+            'NAME': config('DB_NAME', default='drf_identity'),
             'USER': config('DB_USER', default='postgres'),
             'PASSWORD': config('DB_PASSWORD', default='postgres'),
             'HOST': config('DB_HOST', default='localhost'),
@@ -197,7 +197,7 @@ SIMPLE_JWT = {
 
 # Spectacular (OpenAPI) Configuration
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Pharma DRF Service API',
+    'TITLE': 'DRF Identity Service API',
     'DESCRIPTION': 'Production-style DRF service with JWT, RBAC, caching, and audit logs',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
