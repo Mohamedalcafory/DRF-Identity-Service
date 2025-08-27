@@ -1,3 +1,0 @@
-"""Serializations app stub."""
-
-

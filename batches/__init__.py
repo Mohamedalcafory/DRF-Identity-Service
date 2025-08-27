@@ -1,3 +1,0 @@
-"""Batches app stub."""
-
-

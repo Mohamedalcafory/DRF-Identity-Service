@@ -7,15 +7,15 @@ class IsAdmin(BasePermission):
         return bool(user and user.is_authenticated and getattr(user, 'is_admin', False))
 
 
-class IsQA(BasePermission):
+class IsManager(BasePermission):
     def has_permission(self, request, view):
         user = request.user
-        return bool(user and user.is_authenticated and getattr(user, 'is_qa', False))
+        return bool(user and user.is_authenticated and getattr(user, 'is_manager', False))
 
 
-class IsOperator(BasePermission):
+class IsUser(BasePermission):
     def has_permission(self, request, view):
         user = request.user
-        return bool(user and user.is_authenticated and getattr(user, 'is_operator', False))
+        return bool(user and user.is_authenticated and getattr(user, 'is_user', False))
 
 

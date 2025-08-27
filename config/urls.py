@@ -18,10 +18,6 @@ urlpatterns = [
     
     # API URLs
     path('api/auth/', include('accounts.urls')),
-    path('api/sites/', include('sites.urls')),
-    path('api/batches/', include('batches.urls')),
-    path('api/serializations/', include('serializations.urls')),
-    path('api/inspections/', include('inspections.urls')),
     path('api/audit/', include('audit.urls')),
 ]
 

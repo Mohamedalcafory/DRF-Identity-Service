@@ -120,7 +120,6 @@ make test-watch
 - `core/` - Utilities, middleware, exceptions, permissions
 - `accounts/` - User model, auth serializers/views/urls, admin
 - `audit/` - Audit middleware and future endpoints
-- `sites/`, `batches/`, `serializations/`, `inspections/` - Domain apps
 - `Dockerfile` - Container definition
 - `docker-compose.yml` - Service orchestration
 - `Makefile` - Development commands

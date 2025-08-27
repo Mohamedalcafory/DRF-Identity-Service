@@ -3,20 +3,11 @@ import os
 # Create the project structure
 project_structure = {
     "drf_identity_service": {
-        "backend": {
-            "config": ["__init__.py", "settings.py", "urls.py", "wsgi.py"],
-            "core": ["__init__.py", "permissions.py", "middleware.py", "utils.py", "exceptions.py"],
-            "accounts": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py"],
-            "sites": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py"],
-            "batches": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py"],
-            "serializations": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py"],
-            "inspections": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py"],
-            "audit": ["__init__.py", "models.py", "signals.py", "middleware.py", "serializers.py", "views.py", "urls.py"],
-            "tests": ["__init__.py", "test_auth.py", "test_sites.py", "test_audit.py", "conftest.py"]
-        },
-        "infra": ["docker-compose.yml"],
-        "scripts": ["manage.py"],
-        "root_files": ["Makefile", "pyproject.toml", ".env.example", "README.md", ".gitignore", ".pre-commit-config.yaml"]
+        "config": ["__init__.py", "settings.py", "urls.py", "wsgi.py", "asgi.py"],
+        "core": ["__init__.py", "permissions.py", "middleware.py", "utils.py", "exceptions.py"],
+        "accounts": ["__init__.py", "models.py", "serializers.py", "views.py", "urls.py", "admin.py", "apps.py"],
+        "audit": ["__init__.py", "middleware.py", "urls.py", "apps.py"],
+        "root_files": ["manage.py", "Makefile", "pyproject.toml", "docker-compose.yml", "Dockerfile", "README.md", "Documentation.md", "project-plan.md", "quick-start.md"]
     }
 }
 

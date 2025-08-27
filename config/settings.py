@@ -40,10 +40,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'accounts',
-    'sites',
-    'batches',
-    'serializations',
-    'inspections',
     'audit',
     'core',
 ]
@@ -198,7 +194,7 @@ SIMPLE_JWT = {
 # Spectacular (OpenAPI) Configuration
 SPECTACULAR_SETTINGS = {
     'TITLE': 'DRF Identity Service API',
-    'DESCRIPTION': 'Production-style DRF service with JWT, RBAC, caching, and audit logs',
+    'DESCRIPTION': 'A production-ready Django REST Framework identity and authentication service with JWT, RBAC, caching, and audit logging',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,
@@ -266,17 +262,15 @@ AUTH_USER_MODEL = 'accounts.User'
 # Cache TTL Settings (seconds)
 CACHE_TTL = {
     'default': 300,  # 5 minutes
-    'sites': 600,    # 10 minutes
-    'batches': 180,  # 3 minutes
+    'users': 600,    # 10 minutes
+    'sessions': 180,  # 3 minutes
 }
 
 # Audit Settings
 AUDIT_ENABLED = config('AUDIT_ENABLED', default=True, cast=bool)
 AUDIT_MODELS = [
-    'sites.Site',
-    'batches.Batch',
-    'serializations.Serialization',
-    'inspections.Inspection',
+    # Add your domain models here for audit tracking
+    # Example: 'myapp.MyModel',
 ]
 
 # Security Settings

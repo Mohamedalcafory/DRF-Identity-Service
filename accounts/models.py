@@ -8,8 +8,8 @@ from django.db import models
 class Role(models.TextChoices):
     """User roles with different permission levels."""
     ADMIN = 'admin', 'Administrator'
-    QA = 'qa', 'Quality Assurance'
-    OPERATOR = 'operator', 'Operator'
+    MANAGER = 'manager', 'Manager'
+    USER = 'user', 'User'
 
 
 class User(AbstractUser):
@@ -20,7 +20,7 @@ class User(AbstractUser):
     role = models.CharField(
         max_length=20,
         choices=Role.choices,
-        default=Role.OPERATOR,
+        default=Role.USER,
         help_text="User's role determining their permissions"
     )
     
@@ -87,34 +87,30 @@ class User(AbstractUser):
         return self.role == Role.ADMIN
     
     @property
-    def is_qa(self):
-        """Check if user has QA role."""
-        return self.role == Role.QA
+    def is_manager(self):
+        """Check if user has manager role."""
+        return self.role == Role.MANAGER
     
     @property
-    def is_operator(self):
-        """Check if user has operator role."""
-        return self.role == Role.OPERATOR
+    def is_user(self):
+        """Check if user has user role."""
+        return self.role == Role.USER
     
     def can_access_audit_logs(self):
         """Check if user can access audit logs."""
-        return self.role in [Role.ADMIN, Role.QA]
+        return self.role in [Role.ADMIN, Role.MANAGER]
     
-    def can_modify_sites(self):
-        """Check if user can modify site information."""
+    def can_manage_users(self):
+        """Check if user can manage other users."""
         return self.role == Role.ADMIN
     
-    def can_modify_batches(self):
-        """Check if user can modify batch information."""
-        return self.role in [Role.ADMIN, Role.QA]
+    def can_view_reports(self):
+        """Check if user can view reports."""
+        return self.role in [Role.ADMIN, Role.MANAGER]
     
-    def can_create_serializations(self):
-        """Check if user can create serializations."""
-        return self.role in [Role.ADMIN, Role.QA, Role.OPERATOR]
-    
-    def can_create_inspections(self):
-        """Check if user can create inspection records."""
-        return self.role in [Role.ADMIN, Role.QA]
+    def can_modify_settings(self):
+        """Check if user can modify system settings."""
+        return self.role == Role.ADMIN
 
 
 class UserSession(models.Model):
